@@ -1,0 +1,923 @@
+/* ==========================================================================
+   AURA FASHION — LUXURY EDITORIAL DESIGN SYSTEM
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --aura-font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --aura-font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --aura-black: #0e0e10;
+  --aura-dark: #1a1a1e;
+  --aura-charcoal: #2e2e33;
+  --aura-muted: #6e6e73;
+  --aura-border: #ebebed;
+  --aura-border-light: #f4f4f6;
+  --aura-bg-soft: #fafafa;
+  --aura-bg-alt: #f6f5f3;
+  --aura-gold: #c29d60;
+  --aura-gold-light: #f9f6f0;
+  --aura-white: #ffffff;
+  --aura-radius-xs: 6px;
+  --aura-radius-sm: 10px;
+  --aura-radius-md: 16px;
+  --aura-radius-lg: 24px;
+  --aura-radius-pill: 9999px;
+  --aura-shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --aura-shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.08);
+  --aura-transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Typography */
+body, button, input, textarea, select {
+  font-family: var(--aura-font-sans) !important;
+  color: var(--aura-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #fcfcfc !important;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6,
+.site-title,
+.woocommerce-loop-product__title,
+.product_title,
+.entry-title {
+  font-family: var(--aura-font-serif) !important;
+  letter-spacing: -0.01em;
+  color: var(--aura-black) !important;
+  font-weight: 600;
+}
+
+a {
+  color: var(--aura-black);
+  text-decoration: none;
+  transition: var(--aura-transition);
+}
+
+a:hover {
+  color: var(--aura-gold);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   TOP LUXURY ANNOUNCEMENT MARQUEE (FIXED)
+   ========================================================================== */
+.aura-announcement-bar {
+  background: var(--aura-black);
+  color: #f5f5f5;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 16px;
+  text-align: center;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100% !important;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+.aura-announcement-bar span.badge {
+  background: var(--aura-gold);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: var(--aura-radius-pill);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: normal;
+}
+
+/* ==========================================================================
+   SITE HEADER & BRANDING (FIXED WITH FROSTED GLASS EFFECT)
+   ========================================================================== */
+.site-header {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--aura-border) !important;
+  padding: 16px 0 !important;
+  margin: 0 !important;
+  position: fixed !important;
+  top: 38px !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 10000 !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.3s ease !important;
+  box-sizing: border-box !important;
+}
+
+/* Add body top padding so content flows seamlessly beneath the fixed header */
+body {
+  padding-top: 114px !important;
+}
+
+/* Support for WordPress logged-in admin bar */
+body.admin-bar .aura-announcement-bar {
+  top: 32px !important;
+}
+
+body.admin-bar .site-header {
+  top: 70px !important;
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar .aura-announcement-bar {
+    top: 46px !important;
+  }
+  body.admin-bar .site-header {
+    top: 84px !important;
+  }
+  body {
+    padding-top: 130px !important;
+  }
+}
+
+.site-header .col-full {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.site-branding {
+  float: none !important;
+  width: auto !important;
+  margin: 0 !important;
+  text-align: left;
+}
+
+.site-branding .site-title {
+  font-size: 2.1rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase;
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+
+.site-branding .site-title a {
+  color: var(--aura-black) !important;
+  position: relative;
+  display: inline-block;
+}
+
+.site-branding .site-description {
+  display: block !important;
+  font-size: 0.72rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--aura-muted) !important;
+  margin-top: 6px !important;
+  font-weight: 500;
+}
+
+/* Navigation Menu */
+.main-navigation {
+  float: none !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
+.main-navigation ul.menu,
+.main-navigation ul.nav-menu {
+  display: flex !important;
+  align-items: center;
+  gap: 32px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.main-navigation ul.menu > li,
+.main-navigation ul.nav-menu > li {
+  position: relative;
+  display: inline-block;
+}
+
+.main-navigation ul.menu > li > a,
+.main-navigation ul.nav-menu > li > a {
+  padding: 8px 0 !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--aura-dark) !important;
+  position: relative;
+  transition: var(--aura-transition);
+}
+
+.main-navigation ul.menu > li > a::after,
+.main-navigation ul.nav-menu > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--aura-black);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.main-navigation ul.menu > li:hover > a::after,
+.main-navigation ul.nav-menu > li:hover > a::after,
+.main-navigation ul.menu > li.current-menu-item > a::after {
+  width: 100%;
+}
+
+/* Header Cart */
+.site-header-cart {
+  float: none !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
+.site-header-cart .cart-contents {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  background: var(--aura-bg-alt);
+  padding: 8px 18px !important;
+  border-radius: var(--aura-radius-pill);
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: var(--aura-black) !important;
+  border: 1px solid var(--aura-border);
+  transition: var(--aura-transition);
+}
+
+.site-header-cart .cart-contents:hover {
+  background: var(--aura-black);
+  color: #fff !important;
+  border-color: var(--aura-black);
+}
+
+.site-header-cart .cart-contents .count {
+  background: var(--aura-black);
+  color: #fff;
+  border-radius: var(--aura-radius-pill);
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  transition: var(--aura-transition);
+}
+
+.site-header-cart .cart-contents:hover .count {
+  background: #fff;
+  color: var(--aura-black);
+}
+
+/* Hide clutter header search if default Storefront puts it awkwardly */
+.site-header .site-search {
+  display: none !important;
+}
+
+/* ==========================================================================
+   HERO / EDITORIAL SHOWCASE BANNER
+   ========================================================================== */
+.aura-editorial-hero {
+  background: linear-gradient(135deg, #f7f5f0 0%, #efeae1 50%, #fbf9f6 100%);
+  border-bottom: 1px solid var(--aura-border);
+  padding: 64px 20px 54px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.aura-editorial-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(194, 157, 96, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.aura-editorial-hero-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--aura-gold);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 6px 18px;
+  border-radius: var(--aura-radius-pill);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  margin-bottom: 18px;
+}
+
+.aura-editorial-hero h1 {
+  font-size: 3.2rem !important;
+  line-height: 1.15 !important;
+  font-weight: 600 !important;
+  margin: 0 auto 16px !important;
+  max-width: 800px;
+  letter-spacing: -0.02em;
+}
+
+.aura-editorial-hero p.subtitle {
+  font-size: 1.1rem;
+  color: var(--aura-muted);
+  max-width: 600px;
+  margin: 0 auto 32px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Category Quick Filter Pills */
+.aura-category-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.aura-category-filters a {
+  background: var(--aura-white);
+  color: var(--aura-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: var(--aura-radius-pill);
+  border: 1px solid var(--aura-border);
+  box-shadow: var(--aura-shadow-subtle);
+  transition: var(--aura-transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aura-category-filters a:hover,
+.aura-category-filters a.active {
+  background: var(--aura-black);
+  color: #fff;
+  border-color: var(--aura-black);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.aura-category-filters a .pill-count {
+  background: rgba(0, 0, 0, 0.06);
+  font-size: 0.7rem;
+  padding: 1px 7px;
+  border-radius: 99px;
+}
+
+.aura-category-filters a:hover .pill-count,
+.aura-category-filters a.active .pill-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* ==========================================================================
+   MAIN LAYOUT & CONTAINER
+   ========================================================================== */
+.col-full {
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+}
+
+#primary.content-area {
+  width: 100% !important;
+  float: none !important;
+  margin: 0 !important;
+}
+
+#secondary.widget-area {
+  display: none !important; /* Hide dated default sidebar for clean editorial look */
+}
+
+/* Storefront Page Header & Breadcrumbs */
+.woocommerce-breadcrumb {
+  font-size: 0.75rem !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--aura-muted) !important;
+  margin: 20px 0 24px !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.woocommerce-breadcrumb a {
+  color: var(--aura-muted);
+}
+
+.woocommerce-breadcrumb a:hover {
+  color: var(--aura-black);
+}
+
+.woocommerce-products-header {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.woocommerce-products-header__title.page-title {
+  font-size: 2.4rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+}
+
+.woocommerce-result-count,
+.woocommerce-ordering {
+  margin-bottom: 30px !important;
+  font-size: 0.86rem;
+  color: var(--aura-muted);
+}
+
+.woocommerce-ordering select {
+  border: 1px solid var(--aura-border) !important;
+  border-radius: var(--aura-radius-pill) !important;
+  padding: 8px 18px !important;
+  background-color: #fff !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+}
+
+/* ==========================================================================
+   PRODUCT CATALOG GRID
+   ========================================================================== */
+ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 32px 24px !important;
+  margin: 0 0 60px !important;
+  padding: 0 !important;
+  list-style: none !important;
+  clear: both;
+}
+
+@media (max-width: 1024px) {
+  ul.products {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  ul.products {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  ul.products {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+ul.products li.product {
+  float: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  background: var(--aura-white);
+  border: 1px solid var(--aura-border);
+  border-radius: var(--aura-radius-md);
+  padding: 16px;
+  display: flex !important;
+  flex-direction: column;
+  transition: var(--aura-transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--aura-shadow-subtle);
+}
+
+ul.products li.product:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--aura-shadow-hover);
+  border-color: #dfdfe4;
+}
+
+/* Product Thumbnail */
+ul.products li.product a.woocommerce-LoopProduct-link {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-decoration: none;
+}
+
+ul.products li.product a.woocommerce-LoopProduct-link img {
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: cover !important;
+  border-radius: var(--aura-radius-sm) !important;
+  margin: 0 0 16px !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  background-color: var(--aura-bg-soft);
+}
+
+ul.products li.product:hover a.woocommerce-LoopProduct-link img {
+  transform: scale(1.05);
+}
+
+/* Product Title */
+ul.products li.product .woocommerce-loop-product__title {
+  font-family: var(--aura-font-serif) !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  margin: 4px 0 8px !important;
+  color: var(--aura-black) !important;
+  transition: var(--aura-transition);
+}
+
+ul.products li.product:hover .woocommerce-loop-product__title {
+  color: var(--aura-gold) !important;
+}
+
+/* Price */
+ul.products li.product .price {
+  font-family: var(--aura-font-sans) !important;
+  font-size: 1.18rem !important;
+  font-weight: 700 !important;
+  color: var(--aura-black) !important;
+  margin-bottom: 16px !important;
+  display: block;
+}
+
+ul.products li.product .price .woocommerce-Price-currencySymbol {
+  font-weight: 500;
+  margin-right: 2px;
+}
+
+/* Add To Cart Button */
+ul.products li.product .button,
+ul.products li.product a.button.add_to_cart_button {
+  background: var(--aura-black) !important;
+  color: #fff !important;
+  font-family: var(--aura-font-sans) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 20px !important;
+  border-radius: var(--aura-radius-pill) !important;
+  border: 1px solid var(--aura-black) !important;
+  text-align: center;
+  width: 100% !important;
+  margin-top: auto !important;
+  transition: var(--aura-transition) !important;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+ul.products li.product .button:hover,
+ul.products li.product a.button.add_to_cart_button:hover {
+  background: var(--aura-white) !important;
+  color: var(--aura-black) !important;
+  border-color: var(--aura-black) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Added to cart state */
+ul.products li.product a.added_to_cart {
+  display: block;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--aura-gold);
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   SINGLE PRODUCT PAGE STYLING
+   ========================================================================== */
+.single-product div.product {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 54px;
+  background: #fff;
+  border: 1px solid var(--aura-border);
+  border-radius: var(--aura-radius-lg);
+  padding: 40px;
+  margin-bottom: 60px;
+  box-shadow: var(--aura-shadow-subtle);
+}
+
+@media (max-width: 860px) {
+  .single-product div.product {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 32px;
+  }
+}
+
+.single-product div.product .woocommerce-product-gallery {
+  float: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.single-product div.product .woocommerce-product-gallery img {
+  border-radius: var(--aura-radius-md) !important;
+  width: 100%;
+  object-fit: cover;
+  box-shadow: var(--aura-shadow-subtle);
+}
+
+.single-product div.product .summary.entry-summary {
+  float: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.single-product div.product .product_title {
+  font-size: 2.6rem !important;
+  line-height: 1.2 !important;
+  margin-bottom: 12px !important;
+}
+
+.single-product div.product p.price {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  color: var(--aura-black) !important;
+  margin-bottom: 24px !important;
+}
+
+.single-product div.product .woocommerce-product-details__short-description {
+  font-size: 1.05rem;
+  color: var(--aura-muted);
+  line-height: 1.8;
+  margin-bottom: 30px;
+  border-top: 1px solid var(--aura-border);
+  border-bottom: 1px solid var(--aura-border);
+  padding: 20px 0;
+}
+
+.single-product div.product form.cart {
+  display: flex !important;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px !important;
+}
+
+.single-product div.product form.cart .quantity {
+  margin: 0 !important;
+}
+
+.single-product div.product form.cart .quantity input.qty {
+  width: 70px !important;
+  height: 52px !important;
+  border: 1px solid var(--aura-border) !important;
+  border-radius: var(--aura-radius-pill) !important;
+  background: var(--aura-bg-alt) !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  text-align: center;
+}
+
+.single-product div.product form.cart button.single_add_to_cart_button {
+  flex-grow: 1;
+  height: 52px;
+  background: var(--aura-black) !important;
+  color: #fff !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--aura-radius-pill) !important;
+  border: 2px solid var(--aura-black) !important;
+  transition: var(--aura-transition) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.single-product div.product form.cart button.single_add_to_cart_button:hover {
+  background: #fff !important;
+  color: var(--aura-black) !important;
+  transform: translateY(-2px);
+}
+
+/* Trust Badges on Product Page */
+.aura-trust-badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  background: var(--aura-bg-soft);
+  border: 1px solid var(--aura-border);
+  border-radius: var(--aura-radius-sm);
+  padding: 18px 16px;
+  margin-top: 24px;
+}
+
+.aura-trust-badge {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--aura-dark);
+}
+
+.aura-trust-badge .icon {
+  display: block;
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   CART & CHECKOUT POLISH
+   ========================================================================== */
+table.shop_table {
+  border: 1px solid var(--aura-border) !important;
+  border-radius: var(--aura-radius-md) !important;
+  overflow: hidden;
+  background: #fff !important;
+  box-shadow: var(--aura-shadow-subtle);
+}
+
+table.shop_table th {
+  background: var(--aura-bg-soft);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  padding: 16px !important;
+  border-bottom: 1px solid var(--aura-border);
+}
+
+table.shop_table td {
+  padding: 20px 16px !important;
+  border-bottom: 1px solid var(--aura-border-light);
+}
+
+.cart_totals {
+  background: #fff;
+  border: 1px solid var(--aura-border);
+  border-radius: var(--aura-radius-md);
+  padding: 28px;
+  box-shadow: var(--aura-shadow-subtle);
+}
+
+.cart_totals h2 {
+  font-size: 1.5rem !important;
+  margin-bottom: 16px !important;
+}
+
+.checkout-button,
+#place_order {
+  background: var(--aura-black) !important;
+  color: #fff !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 28px !important;
+  border-radius: var(--aura-radius-pill) !important;
+  border: 1px solid var(--aura-black) !important;
+  transition: var(--aura-transition) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.checkout-button:hover,
+#place_order:hover {
+  background: #fff !important;
+  color: var(--aura-black) !important;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   FOOTER LUXURY REDESIGN
+   ========================================================================== */
+.site-footer {
+  background: var(--aura-black) !important;
+  color: #a0a0a5 !important;
+  padding: 64px 0 32px !important;
+  margin-top: 60px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.aura-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 48px;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .aura-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  .aura-footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.aura-footer-col h4 {
+  font-family: var(--aura-font-serif) !important;
+  color: #fff !important;
+  font-size: 1.25rem !important;
+  margin-bottom: 18px !important;
+}
+
+.aura-footer-col p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #888890;
+}
+
+.aura-footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aura-footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.aura-footer-col ul li a {
+  color: #a0a0a5;
+  font-size: 0.88rem;
+  transition: var(--aura-transition);
+}
+
+.aura-footer-col ul li a:hover {
+  color: #fff;
+  padding-left: 4px;
+}
+
+.aura-newsletter-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.aura-newsletter-input input {
+  background: #1c1c20 !important;
+  border: 1px solid #333338 !important;
+  color: #fff !important;
+  padding: 10px 16px !important;
+  border-radius: var(--aura-radius-pill) !important;
+  font-size: 0.85rem !important;
+  flex-grow: 1;
+}
+
+.aura-newsletter-input button {
+  background: var(--aura-gold) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: var(--aura-radius-pill) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: var(--aura-transition);
+}
+
+.aura-newsletter-input button:hover {
+  background: #fff !important;
+  color: var(--aura-black) !important;
+}
+
+.aura-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: #666670;
+}
+
+.aura-footer-bottom a {
+  color: #888890;
+}
+
+.site-info {
+  display: none !important; /* Replaced with modern footer bottom */
+}
